@@ -1,14 +1,17 @@
 import React from "react";
-import { BrowserRouter, Switch} from "react-router-dom"
-import Routes from "./Routes"
+import { BrowserRouter, Switch } from "react-router-dom";
+import Routes from "./Routes";
+import Container from "@material-ui/core/Container";
 
 function App() {
   return (
-   <BrowserRouter>
-    <Switch>
-      <Routes/>
-    </Switch>
-   </BrowserRouter>
+    <BrowserRouter>
+      <Container maxWidth="lg">
+        <Switch>
+          <Routes />
+        </Switch>
+      </Container>
+    </BrowserRouter>
   );
 }
 
