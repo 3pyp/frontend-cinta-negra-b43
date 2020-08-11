@@ -8,26 +8,14 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function RegisterForm({ onSubmit, onType }) {
+function LoginForm({ onSubmit, onType }) {
   return (
     <Grid item xs={12} md={6} lg={4}>
       <Card>
         <Box p={3}>
           <Typography variant="h5" color="initial">
-            Registro
+            Iniciar Sesión
           </Typography>
-          <Box my={2}>
-            <TextField onChange={onType} fullWidth id="name" label="Name" />
-          </Box>
-
-          <Box my={2}>
-            <TextField
-              onChange={onType}
-              fullWidth
-              id="last_name"
-              label="Last Name"
-            />
-          </Box>
 
           <Box my={2}>
             <TextField onChange={onType} fullWidth id="email" label="Email" />
@@ -49,7 +37,7 @@ function RegisterForm({ onSubmit, onType }) {
             color="primary"
             fullWidth
           >
-            Registrarse
+            Iniciar Sesión
           </Button>
         </Box>
       </Card>
@@ -57,4 +45,4 @@ function RegisterForm({ onSubmit, onType }) {
   );
 }
 
-export default RegisterForm;
+export default LoginForm;
