@@ -2,9 +2,10 @@ import React, { useState, useEffect, useContext } from "react";
 import UserCard from "../components/UserCard";
 import { getUsers } from "../services/UserServices";
 import { AuthContext } from "../context/AuthContext";
+import {verifyToken} from '../utils'
 
 function UserView(props) {
-  const {token} = useContext(AuthContext)
+  const {user} = useContext(AuthContext)
   const [state, setState] = useState({
     users: [],
   });
@@ -32,12 +33,12 @@ function UserView(props) {
     }
   };
 
-  const verifyUser = ()=>{
-    console.log(token)
-    return token ? renderUsers() : props.history.push('/login');
+  const verifyAuth = ()=>{
+    console.log(user)
+    return user ? renderUsers() : props.history.push('/login');
   }
 
-  return <div className="Users">{verifyUser()}</div>;
+  return <div className="Users">{verifyAuth()}</div>;
 }
 
 export default UserView;

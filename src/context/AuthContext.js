@@ -11,17 +11,17 @@ const AuthContextProvider = (props) => {
 
   useEffect(()=>{
     const encodedToken = localStorage.getItem('token');
-    if(encodedToken) {
+
+    if(encodedToken !== 'undefined' && encodedToken !== null) {
       const decodedToken = decode(encodedToken);
       const userData = {
         id: decodedToken.id,
         email: decodedToken.email,
         name: decodedToken.name,
       }
-      console.log(encodedToken)
-      console.log(userData)
       setUser(userData);
       setToken(encodedToken);
+      console.log(user)
     }
   },[])
 
