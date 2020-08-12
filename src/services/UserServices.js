@@ -25,12 +25,10 @@ export async function registerUser(user, props) {
   }
 }
 
-export async function loginUser(user, props) {
+export async function loginUser(user) {
   try {
     const { data } = await axios.post(`${base_url}/users/login`, user);
-    localStorage.setItem('token', data.token)
-    localStorage.setItem('user', data.user)
-    props.history.push("/users");
+    return data
   } catch (error) {
     return error;
   }

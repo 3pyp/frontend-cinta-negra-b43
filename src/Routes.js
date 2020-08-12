@@ -7,10 +7,12 @@ import LoginView from "./Views/LoginView"
 function Routes () {
   return (
     <Fragment>
-      <Redirect from="/" to="register"/>
-      <Route exact path="/users" component={UserView}/>
-      <Route exact path="/register" component={RegisterView}/>
+      <Route exact path="/">
+        <Redirect to="/register" />
+      </Route>
       <Route exact path="/login" component={LoginView}/>
+      <Route exact path="/register" component={RegisterView}/>
+      <Route exact path="/users" component={UserView}/>
     </Fragment>
   )
 }

@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { loginUser } from "../services/UserServices";
 import LoginForm from "../components/LoginForm";
 import { Grid } from "@material-ui/core";
+import { AuthContext } from "../context/AuthContext";
 
-function LoginView(props) {
+function LoginView() {
+  const { setAuthToken } = useContext(AuthContext);
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const onSubmit = () => {
-    loginUser(user, props);
+  const onSubmit = async () => {
+    const data = await loginUser(user);
+    if (data) {
+      setAuthToken(data.token);
+    }
   };
 
   const onType = (event) => {
